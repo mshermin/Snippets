@@ -97,3 +97,7 @@ namespace Mississauga.DS.IZBLViewer.IntegrationService.Middleware
         }
     }
 }
+
+
+    //in startup.cs Configure [app.UseRequestResponseLoggingMiddleware();
+    //add a NuGet reference to the Microsoft.IO.RecyclableMemoryStream package
