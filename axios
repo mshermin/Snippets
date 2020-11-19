@@ -1,4 +1,4 @@
-function EzAdmin_AjaxGet(url, args, headers, onSuccess, onError, onComplete) {
+function Admin_AjaxGet(url, args, headers, onSuccess, onError, onComplete) {
     axios
         .get(url, { headers: { 'Content-Type': 'application/json' }, params: args })
         .then(response => {
@@ -10,7 +10,7 @@ function EzAdmin_AjaxGet(url, args, headers, onSuccess, onError, onComplete) {
         if (onComplete) { onComplete(); }
 }
 
-function EzAdmin_AjaxPost(url, args, onSuccess, onError, onComplete) {
+function Admin_AjaxPost(url, args, onSuccess, onError, onComplete) {
     axios
         .post(url, args)
         .then(response => {
@@ -23,4 +23,4 @@ function EzAdmin_AjaxPost(url, args, onSuccess, onError, onComplete) {
 }
 
 //usage
-EzAdmin_AjaxPost(this.baseUrl + '?handler=UpdatePassword', this.passwordChangeArg, this.updateDone, this.handleError, this.onComplete);
+Admin_AjaxPost(this.baseUrl + '?handler=UpdatePassword', this.passwordChangeArg, this.updateDone, this.handleError, this.onComplete);
