@@ -1,0 +1,26 @@
+function EzAdmin_AjaxGet(url, args, headers, onSuccess, onError, onComplete) {
+    axios
+        .get(url, { headers: { 'Content-Type': 'application/json' }, params: args })
+        .then(response => {
+            if (onSuccess) { onSuccess(response.data); }
+        })
+        .catch(error => { onError(error); });
+
+        //removing finally for IE support. if we need finally specifically, we will write an IE specific code later (if jQuery.browser.msie)
+        if (onComplete) { onComplete(); }
+}
+
+function EzAdmin_AjaxPost(url, args, onSuccess, onError, onComplete) {
+    axios
+        .post(url, args)
+        .then(response => {
+            if (onSuccess) { onSuccess(response.data); }
+        })
+        .catch(error => { onError(error); });
+
+        if (onComplete) { onComplete();}
+
+}
+
+//usage
+EzAdmin_AjaxPost(this.baseUrl + '?handler=UpdatePassword', this.passwordChangeArg, this.updateDone, this.handleError, this.onComplete);
